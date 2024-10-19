@@ -835,6 +835,7 @@ GameObject:
   - component: {fileID: 1292074182}
   - component: {fileID: 1292074178}
   - component: {fileID: 1292074183}
+  - component: {fileID: 1292074184}
   m_Layer: 0
   m_Name: MovableCube
   m_TagString: Untagged
@@ -950,6 +951,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   force: {x: 0, y: 0.3, z: 0}
+--- !u!95 &1292074184
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292074177}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 956825fd5ce9646a99df1dca351d243a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1300000305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,6 +1274,7 @@ GameObject:
   - component: {fileID: 1842659519}
   - component: {fileID: 1842659518}
   - component: {fileID: 1842659523}
+  - component: {fileID: 1842659524}
   m_Layer: 0
   m_Name: MovableSphere
   m_TagString: Untagged
@@ -1370,3 +1393,24 @@ MonoBehaviour:
   forceNegativeX: {x: -10, y: 0, z: 0}
   forcePositiveZ: {x: 0, y: 0, z: 10}
   forceNegativeZ: {x: 0, y: 0, z: -10}
+--- !u!95 &1842659524
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842659517}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 87884e122d1e648769b987c8b3910661, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
