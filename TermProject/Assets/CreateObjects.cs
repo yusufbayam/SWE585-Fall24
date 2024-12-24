@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class CreateObjects : MonoBehaviour
 {
@@ -13,26 +14,14 @@ public class CreateObjects : MonoBehaviour
     private NavMeshPath[] paths;
     public GameObject movingTarget;
     private bool pathsReady = false;
+    public float updateInterval = 0.1f;
 
     void Start()
     {
         agents = new NavMeshAgent[numberOfObjects];
         paths = new NavMeshPath[numberOfObjects];
         GenerateObjects();
-    }
-
-    void Update()
-    {
-        if (movingTarget != null)
-        {
-            foreach (var agent in agents)
-            {
-                if (agent != null)
-                {
-                    agent.SetDestination(movingTarget.transform.position);
-                }
-            }
-        }
+        StartCoroutine(UpdateAgentDestinations());
     }
 
     void GenerateObjects()
@@ -54,7 +43,6 @@ public class CreateObjects : MonoBehaviour
             float z = startPoint.z + (i % (int)gridSize.y) * (prefabDepth + spacing);
 
             Vector3 position = new(x, startPoint.y, z);
-            Debug.Log($"Object {i}: Position = {position}");
 
             GameObject instance = Instantiate(prefab, position, Quaternion.identity);
 
@@ -66,6 +54,26 @@ public class CreateObjects : MonoBehaviour
             }
         }
     }
+
+    IEnumerator UpdateAgentDestinations()
+    {
+        while (true)
+        {
+            if (movingTarget != null)
+            {
+                foreach (var agent in agents)
+                {
+                    if (agent != null)
+                    {
+                        agent.SetDestination(movingTarget.transform.position);
+                    }
+                }
+            }
+
+            yield return new WaitForSeconds(updateInterval);
+        }
+    }
+
     void CalculatePaths()
     {
         bool allPathsCalculated = true;
@@ -90,7 +98,6 @@ public class CreateObjects : MonoBehaviour
         }
 
         pathsReady = allPathsCalculated;
-
     }
 
     void MoveAgents()

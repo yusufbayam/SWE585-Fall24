@@ -37,6 +37,7 @@ public class RandomMovement : MonoBehaviour
     {
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
+            Debug.Log($"Delta time: {Time.deltaTime}");
             waitTimer += Time.deltaTime;
 
             if (waitTimer >= waitTime)
@@ -59,7 +60,8 @@ public class RandomMovement : MonoBehaviour
 
         if (randomPoint != Vector3.zero)
         {
-            agent.SetDestination(randomPoint);
+            agent.Warp(randomPoint);
+            Debug.Log($"Agent set destination to {randomPoint}");
         }
     }
 
@@ -75,19 +77,18 @@ public class RandomMovement : MonoBehaviour
             NavMeshHit hit;
             if (NavMesh.SamplePosition(randomDirection, out hit, radius, NavMesh.AllAreas))
             {
-                if (IsWithinMazeBounds(hit.position))
-                {
-                    return hit.position;
-                }
+                Debug.Log($"Hit at attemp {i} {hit.position}");
+                return hit.position;
             }
         }
 
         Debug.LogWarning("Failed to find a valid random point after multiple attempts.");
-        return new Vector3(27,1,20); // Default position
+        return new Vector3(27, 1, 20); // Default position
     }
 
     bool IsWithinMazeBounds(Vector3 point)
     {
+        Debug.Log($"Is point within bounds {mazeBounds.Contains(point)}");
         return mazeBounds.Contains(point);
     }
 }
