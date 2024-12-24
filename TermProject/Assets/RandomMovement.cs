@@ -39,7 +39,6 @@ public class RandomMovement : MonoBehaviour
         {
             waitTimer += Time.deltaTime;
 
-            // Wait at the current position for a while before moving again
             if (waitTimer >= waitTime)
             {
                 MoveToRandomPoint();
@@ -52,7 +51,6 @@ public class RandomMovement : MonoBehaviour
     {
         Vector3 randomPoint;
 
-        // Retry until a valid point within bounds is found
         do
         {
             randomPoint = GetRandomPointWithinRadius(transform.position, moveRadius);
@@ -67,7 +65,7 @@ public class RandomMovement : MonoBehaviour
 
     Vector3 GetRandomPointWithinRadius(Vector3 origin, float radius)
     {
-        int maxAttempts = 10; // Limit the number of attempts
+        int maxAttempts = 10;
         for (int i = 0; i < maxAttempts; i++)
         {
             Vector3 randomDirection = Random.insideUnitSphere * radius;
@@ -85,7 +83,7 @@ public class RandomMovement : MonoBehaviour
         }
 
         Debug.LogWarning("Failed to find a valid random point after multiple attempts.");
-        return new Vector3(27,1,20); // Default to zero if no valid point is found
+        return new Vector3(27,1,20); // Default position
     }
 
     bool IsWithinMazeBounds(Vector3 point)

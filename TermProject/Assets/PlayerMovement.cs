@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+//Unused right now
+public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
     public Camera mainCamera;
@@ -10,17 +11,6 @@ public class Movement : MonoBehaviour
     public Vector3 forceNegativeX = new Vector3(-10, 0, 0);
     public Vector3 forcePositiveZ = new Vector3(0, 0, 10);
     public Vector3 forceNegativeZ = new Vector3(0, 0, -10);
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     void FixedUpdate()
     {

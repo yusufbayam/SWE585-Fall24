@@ -63,7 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/CreateObjects.cs" />
-    <Compile Include="Assets/EndpointChecker.cs" />
     <Compile Include="Assets/PlayerMovement.cs" />
     <Compile Include="Assets/RandomMovement.cs" />
   </ItemGroup>
